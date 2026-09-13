@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Generated Website 005",
+  "url": "https://www.generated-website-005.com",
+  "description": "Professional, fast, and built to turn visitors into customers.",
+  "foundingDate": "2026",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": ["English", "Urdu"]
+  },
+  "sameAs": [
+    "https://www.facebook.com/generated-website-005",
+    "https://www.instagram.com/generated-website-005",
+    "https://twitter.com/generated-website-005"
+  ]
+}

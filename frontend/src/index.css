@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-slate-900/70 backdrop-blur-md border border-slate-800 shadow-xl;
+  }
+  .glass-card {
+    @apply bg-slate-900/60 backdrop-blur border border-slate-800/80 hover:border-cyan-500/50 transition-all duration-300;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent;
+  }
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+/* ── Responsive Fluid UI ────────────────────────────────────────────────── */
+/* LUMICORE_MATRIX:responsive_fluid_ui */
+:root {
+  --fluid-space-1: clamp(0.25rem, 0.2rem + 0.4vw, 0.5rem);
+  --fluid-space-2: clamp(0.5rem, 0.4rem + 0.6vw, 0.9rem);
+  --fluid-space-3: clamp(0.75rem, 0.6rem + 0.9vw, 1.4rem);
+  --fluid-space-4: clamp(1rem, 0.8rem + 1.2vw, 1.9rem);
+  --fluid-space-5: clamp(1.5rem, 1.1rem + 1.9vw, 2.9rem);
+  --fluid-space-6: clamp(2rem, 1.4rem + 2.8vw, 4rem);
+  --fluid-page: clamp(1rem, 0.5rem + 2.4vw, 2.5rem);
+}
+
+@layer utilities {
+  .fluid-container {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: var(--fluid-page);
+  }
+  .fluid-section { padding-block: var(--fluid-space-6); }
+  .fluid-gap-1 { gap: var(--fluid-space-1); }
+  .fluid-gap-2 { gap: var(--fluid-space-2); }
+  .fluid-gap-3 { gap: var(--fluid-space-3); }
+  .fluid-gap-4 { gap: var(--fluid-space-4); }
+  .fluid-gap-5 { gap: var(--fluid-space-5); }
+  .p-fluid-1 { padding: var(--fluid-space-1); }
+  .p-fluid-2 { padding: var(--fluid-space-2); }
+  .p-fluid-3 { padding: var(--fluid-space-3); }
+  .p-fluid-4 { padding: var(--fluid-space-4); }
+  .py-fluid-2 { padding-block: var(--fluid-space-2); }
+  .py-fluid-3 { padding-block: var(--fluid-space-3); }
+  .py-fluid-4 { padding-block: var(--fluid-space-4); }
+  .text-fluid-hero { font-size: clamp(2rem, 1.2rem + 3.6vw, 4.5rem); line-height: 1.05; }
+  .text-fluid-lg { font-size: clamp(1.25rem, 1.05rem + 1.1vw, 1.9rem); line-height: 1.35; }
+  .fluid-bleed { width: 100vw; margin-inline-start: calc(50% - 50vw); }
+  .fluid-ease { transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1), opacity 400ms ease; }
+}
+/* ── End Responsive Fluid UI ───────────────────────────────────────────── */
+
+/* ── Platform TRD: CLS guard (budget < 0.1) ────────────────── */
+/* LUMICORE_PLATFORM:cls_budget */
+@layer utilities {
+  img, video, iframe { max-width: 100%; display: block; }
+  .cls-reserve { width: 100%; aspect-ratio: var(--cls-ar, 16 / 9); }
+  .skeleton-shimmer { position: relative; overflow: hidden; background: rgb(148 163 184 / 0.12); }
+  .skeleton-shimmer::after {
+    content: ''; position: absolute; inset: 0; transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgb(148 163 184 / 0.18), transparent);
+    animation: lc-shimmer 1.6s infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer::after { animation: none; }
+}
+@keyframes lc-shimmer { to { transform: translateX(100%); } }
+/* ── End Platform TRD CLS guard ──────────────────────────────── */
+
+/* ── Design Tokens: semantic color mapping (TRD #3) ─────────────────────── */
+/* LUMICORE_DESIGN -- tokens */
+:root {
+  --t-canvas: 255 255 255;
+  --t-canvas-text: 15 23 42;
+  --t-primary: 14 165 233;
+  --t-secondary: 109 40 217;
+  --t-accent: 245 158 11;
+  --t-muted: 100 116 139;
+  --t-glass-bg: 255 255 255;
+  --t-glass-border: 255 255 255;
+}
+.dark {
+  --t-canvas: 2 6 23;
+  --t-canvas-text: 248 250 252;
+  --t-primary: 34 211 238;
+  --t-secondary: 167 139 250;
+  --t-accent: 251 191 36;
+  --t-muted: 148 163 184;
+  --t-glass-bg: 15 23 42;
+  --t-glass-border: 255 255 255;
+}
+
+/* Canvas archetypes (dark default per TRD). */
+@layer base {
+  body { background-color: var(--t-canvas); color: var(--t-canvas-text); }
+  /* lumicore-design-font */
+}
+/* lumicore-design: glassmorphism */
+@layer utilities {
+  .glass-md {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgb(var(--t-glass-bg) / 0.70);
+    border: 1px solid rgb(var(--t-glass-border) / 0.10);
+  }
+}
+/* ── End Design Tokens ─────────────────────────────────────────────────── */

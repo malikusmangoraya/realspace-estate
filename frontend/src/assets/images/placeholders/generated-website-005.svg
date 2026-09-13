@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8a14dde6"/>
+      <stop offset="100%" stop-color="#8a14ff"/>
+    </linearGradient>
+    <radialGradient id="s" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <rect width="1200" height="800" fill="url(#s)"/>
+  <circle cx="940" cy="150" r="120" fill="#ffffff" opacity="0.08"/>
+  <circle cx="250" cy="680" r="180" fill="#000000" opacity="0.08"/>
+  <text x="600" y="410" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+        font-size="56" font-weight="600" fill="#ffffff" opacity="0.92">Generated Website 005</text>
+  <text x="600" y="460" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+        font-size="24" fill="#ffffff" opacity="0.6">LumiCorePro Generated Asset</text>
+</svg>
